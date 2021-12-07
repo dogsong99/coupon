@@ -23,12 +23,12 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 连接池
     hikari:
-      maximum-pool-size: 8
-      minimum-idle: 4
-      idle-timeout: 30000
-      connection-timeout: 30000
-      max-lifetime: 45000
-      auto-commit: true
+      maximum-pool-size: 8 # 最大池大小
+      minimum-idle: 4 # 连接池中维护的最小空闲连接数
+      idle-timeout: 30000 # 允许连接在连接池中空闲的最长时间
+      connection-timeout: 30000 # 客户端等待连接池链接的最大毫秒
+      max-lifetime: 45000 # 池中连接关闭后最长的生命周期
+      auto-commit: true # 从池返回的连接的默认自动提交行为，默认为 true
       pool-name: CouponHikariCP
   redis:
     database: 0
