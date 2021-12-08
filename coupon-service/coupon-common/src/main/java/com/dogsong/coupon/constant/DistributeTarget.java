@@ -1,4 +1,4 @@
-package com.dogsong.coupon.content;
+package com.dogsong.coupon.constant;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,25 +7,25 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 /**
- * 产品线枚举
+ * 分发目标
  *
  * @author <a href="mailto:dogsong99@gmail.com">dogsong</a>
- * @since 2021/12/7
+ * @since 2021/12/8
  */
 @Getter
 @AllArgsConstructor
-public enum ProductLine {
+public enum DistributeTarget {
 
-    DAMAO("大猫", 1),
-    DABAO("大宝", 2);
+    SINGLE("单用户", 1),
+    MULTI("多用户", 2);
 
-    /** 产品线描述 */
+    /** 分发目标描述 */
     private String description;
 
-    /** 产品线编码 */
+    /** 分发目标编码 */
     private Integer code;
 
-    public static ProductLine of(Integer code) {
+    public static DistributeTarget of(Integer code) {
         Objects.requireNonNull(code);
 
         return Stream.of(values())
@@ -33,4 +33,5 @@ public enum ProductLine {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(code + " not exists!"));
     }
+
 }

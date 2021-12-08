@@ -1,4 +1,4 @@
-package com.dogsong.coupon.content;
+package com.dogsong.coupon.constant;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,26 +7,25 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 /**
- * 优惠券分类
+ * 产品线枚举
  *
  * @author <a href="mailto:dogsong99@gmail.com">dogsong</a>
  * @since 2021/12/7
  */
 @Getter
 @AllArgsConstructor
-public enum CouponCategory {
+public enum ProductLine {
 
-    MANJIAN("满减券", "001"),
-    ZHEKOU("折扣券", "002"),
-    LIJIAN("立减券", "003");
+    DAMAO("大猫", 1),
+    DABAO("大宝", 2);
 
-    /** 优惠券描述(分类) */
+    /** 产品线描述 */
     private String description;
 
-    /** 优惠券分类编码 */
-    private String code;
+    /** 产品线编码 */
+    private Integer code;
 
-    public static CouponCategory of(String code) {
+    public static ProductLine of(Integer code) {
         Objects.requireNonNull(code);
 
         return Stream.of(values())
@@ -34,5 +33,4 @@ public enum CouponCategory {
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException(code + " not exists!"));
     }
-
 }

@@ -1,4 +1,4 @@
-package com.dogsong.coupon.content;
+package com.dogsong.coupon.constant;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,25 +7,26 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 /**
- * 分发目标
+ * 优惠券分类
  *
  * @author <a href="mailto:dogsong99@gmail.com">dogsong</a>
- * @since 2021/12/8
+ * @since 2021/12/7
  */
 @Getter
 @AllArgsConstructor
-public enum DistributeTarget {
+public enum CouponCategory {
 
-    SINGLE("单用户", 1),
-    MULTI("多用户", 2);
+    MANJIAN("满减券", "001"),
+    ZHEKOU("折扣券", "002"),
+    LIJIAN("立减券", "003");
 
-    /** 分发目标描述 */
+    /** 优惠券描述(分类) */
     private String description;
 
-    /** 分发目标编码 */
-    private Integer code;
+    /** 优惠券分类编码 */
+    private String code;
 
-    public static DistributeTarget of(Integer code) {
+    public static CouponCategory of(String code) {
         Objects.requireNonNull(code);
 
         return Stream.of(values())
