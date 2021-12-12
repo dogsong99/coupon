@@ -86,6 +86,9 @@ public class TemplateRule {
     /**
      * 使用范围
      */
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
     public static class Usage {
 
         /** 省份 */
