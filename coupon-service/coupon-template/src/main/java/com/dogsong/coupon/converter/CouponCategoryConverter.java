@@ -3,6 +3,7 @@ package com.dogsong.coupon.converter;
 import com.dogsong.coupon.constant.CouponCategory;
 
 import javax.persistence.AttributeConverter;
+import javax.persistence.Converter;
 
 /**
  * 优惠券分类枚举属性转换器
@@ -13,6 +14,7 @@ import javax.persistence.AttributeConverter;
  * @author <a href="mailto:dogsong99@gmail.com">dogsong</a>
  * @since 2021/12/13
  */
+@Converter
 public class CouponCategoryConverter implements AttributeConverter<CouponCategory, String> {
 
     /**
