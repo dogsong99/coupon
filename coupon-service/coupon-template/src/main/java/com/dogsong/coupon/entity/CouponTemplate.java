@@ -7,6 +7,7 @@ import com.dogsong.coupon.converter.CouponCategoryConverter;
 import com.dogsong.coupon.converter.DistributeTargetConverter;
 import com.dogsong.coupon.converter.ProductLineConverter;
 import com.dogsong.coupon.converter.RuleConverter;
+import com.dogsong.coupon.serialization.CouponTemplateSerialize;
 import com.dogsong.coupon.vo.TemplateRule;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
@@ -32,6 +33,7 @@ import java.util.Date;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Table(name = "coupon_template")
+@JsonSerialize(using = CouponTemplateSerialize.class)
 public class CouponTemplate implements Serializable {
 
     /** 自增主键 */
