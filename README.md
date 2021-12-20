@@ -8,6 +8,9 @@
 ![img.png](files/architecture-diagram.png)
 
 开发环境：
+
+![img.png](files/coupon.jpg)
+
 - SpringCloud
 - MySQL
 - Redis
