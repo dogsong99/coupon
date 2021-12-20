@@ -2,12 +2,14 @@ package com.dogsong.coupon.schedule;
 
 import com.dogsong.coupon.dao.CouponTemplateDao;
 import com.dogsong.coupon.entity.CouponTemplate;
+import com.dogsong.coupon.vo.TemplateRule;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -40,7 +42,22 @@ public class ScheduleTask {
         }
 
         Date cur = new Date();
+        List<CouponTemplate> expiredTemplates = new ArrayList<>(templates.size());
 
+        templates.forEach(t -> {
+            // 根据优惠券模版规则中的"过期规则"校验模版是否过期
+            TemplateRule rule = t.getRule();
+            if (rule.getExpiration().getDeadLine() < cur.getTime()) {
+                t.setExpired(true);
+                expiredTemplates.add(t);
+            }
+        });
+
+        if (CollectionUtils.isNotEmpty(expiredTemplates)) {
+            log.info("Expired CouponTemplate Num: {}.", templateDao.saveAll(expiredTemplates));
+        }
+
+        log.info("Done To Expire CouponTemplate.");
 
     }
 }
