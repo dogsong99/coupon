@@ -38,7 +38,9 @@ public class CouponTemplateController {
 
     /**
      * 构建优惠券模版
+     *
      * 127.0.0.1:7001/coupon-template/template/build
+     * 127.0.0.1:9000/gateway/coupon-template/template/build
      *
      * @param request {@link TemplateRequest} 模版请求参数
      * @return {@link CouponTemplate} 返回优惠券模版
@@ -53,6 +55,7 @@ public class CouponTemplateController {
      * 构造优惠券模版详情
      *
      * 127.0.0.1:7001/coupon-template/template/info
+     * 127.0.0.1:9000/gateway/coupon-template/template/info
      *
      * @param id 优惠券模版id
      * @return {@link CouponTemplate} 返回优惠券模版
@@ -66,8 +69,9 @@ public class CouponTemplateController {
     /**
      * 查找所有可用的优惠券模版
      *
+     * -- sdk 说明是对外部服务提供的
      * 127.0.0.1:7001/coupon-template/template/sdk/all
-     *  -- sdk 说明是对外部服务提供的
+     * 127.0.0.1:9000/gateway/coupon-template/template/sdk/all
      *
      * @return List<CouponTemplateSDK> 返回优惠券模版
      */
@@ -81,6 +85,7 @@ public class CouponTemplateController {
      * 获取模版 ids 到 CouponTemplateSDK 的映射
      *
      * 127.0.0.1:7001/coupon-template/template/sdk/infos
+     * 127.0.0.1:9000/gateway/coupon-template/template/sdk/infos
      *
      * @param ids 优惠券模版ids
      * @return Map<CouponTemplateSDK> 返回优惠券模版
