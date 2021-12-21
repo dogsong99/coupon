@@ -93,11 +93,11 @@ public class AsyncServiceImpl implements IAsyncService {
         String data = new SimpleDateFormat("yyMMdd").format(template.getCreateTime());
 
         for (int i = 0; i != template.getCount(); i ++) {
-            result.add(buildCouponCodeSuffix14(data));
+            result.add(prefix4 + buildCouponCodeSuffix14(data));
         }
 
         while (result.size() < template.getCount()) {
-            result.add(buildCouponCodeSuffix14(data));
+            result.add(prefix4 + buildCouponCodeSuffix14(data));
         }
 
         assert result.size() == template.getCount();
