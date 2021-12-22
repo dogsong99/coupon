@@ -33,7 +33,7 @@ spring:
   redis:
     database: 0
     host: 49.233.51.84
-    port: 6379
+    port: 6380
     # password:
     # 连接超时时间
     timeout: 10000
