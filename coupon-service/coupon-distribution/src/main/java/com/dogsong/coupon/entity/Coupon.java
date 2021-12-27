@@ -1,6 +1,8 @@
 package com.dogsong.coupon.entity;
 
 import com.dogsong.coupon.constant.CouponStatus;
+import com.dogsong.coupon.converter.CouponStatusConverter;
+import com.dogsong.coupon.serialization.CouponSerialize;
 import com.dogsong.coupon.vo.CouponTemplateSDK;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
@@ -24,7 +26,7 @@ import java.util.Date;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Table(name = "coupon")
-@JsonSerialize
+@JsonSerialize(using = CouponSerialize.class)
 public class Coupon {
 
     /** 自增主键 */
@@ -52,6 +54,7 @@ public class Coupon {
 
     /** 优惠券状态 */
     @Column(name = "status", nullable = false)
+    @Convert(converter = CouponStatusConverter.class)
     private CouponStatus status;
 
     /** 优惠券对应的模版信息 */
