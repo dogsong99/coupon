@@ -20,7 +20,7 @@ public interface IRedisService {
      *
      * @param userId 用户id
      * @param status 优惠券状态 {@link com.dogsong.coupon.constant.CouponStatus}
-     * @return java.util.List<com.dogsong.coupon.entity.Coupon>
+     * @return {@link Coupon}s, 注意: 可能返回 null 代表从来都没有记录
      */
     List<Coupon> getCachedCoupons(Long userId, Integer status);
 
