@@ -4,6 +4,7 @@ import com.dogsong.coupon.entity.Coupon;
 import com.dogsong.coupon.exception.CouponException;
 import com.dogsong.coupon.vo.AcquireTemplateRequest;
 import com.dogsong.coupon.vo.CouponTemplateSDK;
+import com.dogsong.coupon.vo.SettlementInfo;
 
 import java.util.List;
 
@@ -44,5 +45,11 @@ public interface IUserService {
      */
     Coupon acquireTemplate(AcquireTemplateRequest request) throws CouponException;
 
-
+    /**
+     * 结算(核销)优惠券
+     *
+     * @param info {@link SettlementInfo}
+     * @return {@link SettlementInfo}
+     */
+    SettlementInfo settlement(SettlementInfo info) throws CouponException;
 }
