@@ -12,7 +12,6 @@
         <module>coupon-eureka</module>
         <module>coupon-gateway</module>
         <module>coupon-service</module>
-        <module>coupon-service/coupon-template</module>
     </modules>
 
     <name>coupon</name>
