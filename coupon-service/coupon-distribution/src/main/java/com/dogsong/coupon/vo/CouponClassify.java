@@ -32,6 +32,9 @@ public class CouponClassify {
     /** 已过期的 */
     private List<Coupon> expired;
 
+    /**
+     * 对当前的优惠券进行分类
+     */
     public static CouponClassify classify(List<Coupon> coupons) {
 
         List<Coupon> usable = new ArrayList<>(coupons.size());
