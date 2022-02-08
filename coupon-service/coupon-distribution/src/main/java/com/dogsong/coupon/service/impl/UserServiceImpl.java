@@ -150,6 +150,17 @@ public class UserServiceImpl implements IUserService {
     public List<CouponTemplateSDK> findAvailableTemplate(Long userId) throws CouponException {
         long curTime = new Date().getTime();
 
+        List<CouponTemplateSDK> templateSDKS = templateClient.findAllUsableTemplate().getData();
+        log.debug("Find All Template(From TemplateClient) Count: {}.", templateSDKS.size());
+
+        // 过滤过期的优惠券模版
+        templateSDKS = templateSDKS.stream().filter(
+                t -> t.getRule().getExpiration().getDeadLine() > curTime
+        ).collect(Collectors.toList());
+        log.info("Find Usable Template Count: {}", templateSDKS.size());
+
+
+
 
 
         return null;
